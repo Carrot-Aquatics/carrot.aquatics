@@ -58,6 +58,7 @@ ln -s /boot/config/plugins/&name;/disable_untrusted_sources /usr/local/sbin/disa
 ln -s /boot/config/plugins/&name;/enable_untrusted_sources /usr/local/sbin/enable_untrusted_sources
 
 # Disable untrusted sources
+/usr/local/sbin/disable_untrusted_sources
 </INLINE>
 </FILE>
 
