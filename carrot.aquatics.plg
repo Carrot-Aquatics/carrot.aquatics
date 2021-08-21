@@ -20,7 +20,7 @@
 #!/bin/bash
 
 # Restore page backups
-mv /usr/local/emhttp/plugins/dynamix.plugin.manager/PluginInstall.page /usr/local/emhttp/plugins/dynamix.plugin.manager/PluginInstall.page.backup
+mv /usr/local/emhttp/plugins/dynamix.plugin.manager/PluginInstall.page.backup /usr/local/emhttp/plugins/dynamix.plugin.manager/PluginInstall.page
 </INLINE>
 </FILE>
 
