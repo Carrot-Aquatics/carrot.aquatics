@@ -7,7 +7,7 @@
 <!ENTITY branch "main">
 <!ENTITY pluginURL "https://raw.githubusercontent.com/&repo;/&branch;/plugins/&name;.xml">
 ]>
-<PLUGIN name="&repo;" author="&author;" version="&version;" icon="folder" min="6.10.0-rc1">
+<PLUGIN name="&name;" author="&author;" version="&version;" icon="folder" min="6.10.0-rc1">
 <FILE Name="/boot/config/plugins/&repo;/&name;-&version;.tgz">
 <URL>https://github.com/&repo;/releases/download/v&version;/&name;-&version;.tgz</URL>
 </FILE>
