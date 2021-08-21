@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.4](https://github.com/Carrot-Aquatics/carrot.aquatics/compare/v0.0.3...v0.0.4) (2021-08-21)
+
+
+### Bug Fixes
+
+* page restoring ([f3360c7](https://github.com/Carrot-Aquatics/carrot.aquatics/commit/f3360c7a6d4226b98dff57d5c3f0da680410577c))
+* restore script ([b87c763](https://github.com/Carrot-Aquatics/carrot.aquatics/commit/b87c7632fe44b65dc1721903f7efe499ba64eda9))
+* untrusted sources scripts ([4004ed5](https://github.com/Carrot-Aquatics/carrot.aquatics/commit/4004ed5fafdb938184d27ba358879e13d67e3e18))
+
 ### [0.0.3](https://github.com/Carrot-Aquatics/carrot.aquatics/compare/v0.0.2...v0.0.3) (2021-08-21)
 
 
