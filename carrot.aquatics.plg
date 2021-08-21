@@ -16,6 +16,7 @@
 <FILE Run="/bin/bash">
 <INLINE>
 mkdir -p /boot/config/plugins/&repo;
+mkdir -p /usr/local/emhttp/plugins/&repo;
 tar xfv /boot/config/plugins/&repo;/&name;-&version;.tgz -C /usr/local/emhttp/plugins/&repo; --strip-components=2
 </INLINE>
 </FILE>
