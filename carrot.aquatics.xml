@@ -15,7 +15,7 @@
 <!-- The install script -->
 <FILE Run="/bin/bash">
 <INLINE>
-mkdir -p /boot/config/plugins/&repo; &&
+mkdir -p /boot/config/plugins/&repo;
 tar xfv --strip-components=2 /boot/config/plugins/&repo;/&name;-&version;.tgz -C /usr/local/emhttp/plugins/&repo;
 </INLINE>
 </FILE>
@@ -23,7 +23,7 @@ tar xfv --strip-components=2 /boot/config/plugins/&repo;/&name;-&version;.tgz -C
 <!-- The uninstall script -->
 <FILE Run="/bin/bash" Method="remove">
 <INLINE>
-rm -rf /boot/config/plugins/&repo; &&
+rm -rf /boot/config/plugins/&repo;
 rm -rf /usr/local/emhttp/plugins/&repo;
 </INLINE>
 </FILE>
