@@ -8,7 +8,7 @@
 <!ENTITY pluginURL "https://raw.githubusercontent.com/&repo;/&branch;/plugins/&name;.xml">
 ]>
 <PLUGIN name="&repo;" author="&author;" version="&version;" icon="folder" min="6.10.0-rc1">
-<FILE Name="/boot/config/plugins/&repo;/&name;-v&version;.tgz">
+<FILE Name="/boot/config/plugins/&repo;/&name;-&version;.tgz">
 <URL>https://github.com/&repo;/releases/download/v&version;/&name;-&version;.tgz</URL>
 </FILE>
 
@@ -16,7 +16,7 @@
 <FILE Run="/bin/bash">
 <INLINE>
 mkdir -p /boot/config/plugins/&repo; 2>/dev/null
-tar xfv --strip-components=2 /boot/config/plugins/&repo;/&name;-&version;.tgz -C /usr/local/emhttp/plugins/&repo;/ 2>/dev/null
+tar xfv --strip-components=2 /boot/config/plugins/&repo;/&name;-&version;.tgz -C /usr/local/emhttp/plugins/&repo; 2>/dev/null
 </INLINE>
 </FILE>
 
