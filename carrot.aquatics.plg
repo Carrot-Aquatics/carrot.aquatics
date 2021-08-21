@@ -37,7 +37,7 @@ echo "Menu="Plugins"" > /usr/local/emhttp/plugins/dynamix.plugin.manager/PluginI
 echo "Title="Install Plugin"" >> /usr/local/emhttp/plugins/dynamix.plugin.manager/PluginInstall.page
 echo "Tag="download"" >> /usr/local/emhttp/plugins/dynamix.plugin.manager/PluginInstall.page
 echo "---" >> /usr/local/emhttp/plugins/dynamix.plugin.manager/PluginInstall.page
-echo "To enable untrusted sources please goto a terminal and run <code>enable_untrusted_sources</code>." >> /usr/local/emhttp/plugins/dynamix.plugin.manager/PluginInstall.page
+echo 'To enable untrusted sources please goto a terminal and run <code>enable_untrusted_sources</code>.' >> /usr/local/emhttp/plugins/dynamix.plugin.manager/PluginInstall.page
 </INLINE>
 </FILE>
 
@@ -49,11 +49,15 @@ mkdir -p /boot/config/plugins/&name;
 mkdir -p /usr/local/emhttp/plugins/&name;
 tar xfv /boot/config/plugins/&name;/&name;-&version;.tgz -C /usr/local/emhttp/plugins/&name; --strip-components=2
 
-# Add symlink for disable script
+# Ensure scripts are executable
+chmod +x /usr/local/sbin/disable_untrusted_sources
+chmod +x /usr/local/sbin/enable_untrusted_sources
+
+# Add symlinks for untrusted sources scripts
 ln -s /boot/config/plugins/&name;/disable_untrusted_sources /usr/local/sbin/disable_untrusted_sources
+ln -s /boot/config/plugins/&name;/enable_untrusted_sources /usr/local/sbin/enable_untrusted_sources
 
 # Disable untrusted sources
-sh /boot/config/plugins/&name;/disable_untrusted_sources
 </INLINE>
 </FILE>
 
@@ -63,8 +67,9 @@ sh /boot/config/plugins/&name;/disable_untrusted_sources
 # Restore full access
 sh /boot/config/plugins/&name;/enable_untrusted_sources
 
-# Remove symlink for disable script
+# Remove symlinks for untrusted sources scripts
 rm /usr/local/sbin/disable_untrusted_sources
+rm /usr/local/sbin/enable_untrusted_sources
 
 # Remove the plugin
 rm -rf /boot/config/plugins/&name;
