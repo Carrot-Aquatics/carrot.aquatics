@@ -1,7 +1,7 @@
 const regex = /<!ENTITY(?:\s+)version(?:\s+)"(.*)">/;
 
 const plg = {
-    filename: 'carrot.aquatics.xml',
+    filename: 'carrot.aquatics.plg',
     updater: {
         readVersion(contents) {
             const line = contents.split('\n').find(line => line.match(regex));
