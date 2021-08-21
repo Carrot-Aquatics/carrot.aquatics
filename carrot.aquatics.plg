@@ -50,7 +50,7 @@ mkdir -p /usr/local/emhttp/plugins/&name;
 tar xfv /boot/config/plugins/&name;/&name;-&version;.tgz -C /usr/local/emhttp/plugins/&name; --strip-components=2
 
 # Disable untrusted sources
-/boot/config/plugins/&name;/disable_untrusted_sources
+sh /boot/config/plugins/&name;/disable_untrusted_sources
 </INLINE>
 </FILE>
 
@@ -58,7 +58,7 @@ tar xfv /boot/config/plugins/&name;/&name;-&version;.tgz -C /usr/local/emhttp/pl
 <FILE Run="/bin/bash" Method="remove">
 <INLINE>
 # Restore full access
-/boot/config/plugins/&name;/enable_untrusted_sources
+sh /boot/config/plugins/&name;/enable_untrusted_sources
 
 # Remove the plugin
 rm -rf /boot/config/plugins/&name;
