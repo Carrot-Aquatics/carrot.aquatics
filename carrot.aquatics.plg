@@ -46,7 +46,7 @@ echo "Menu="Plugins"" > /usr/local/emhttp/plugins/dynamix.plugin.manager/PluginI
 echo "Title="Install Plugin"" >> /usr/local/emhttp/plugins/dynamix.plugin.manager/PluginInstall.page
 echo "Tag="download"" >> /usr/local/emhttp/plugins/dynamix.plugin.manager/PluginInstall.page
 echo "---" >> /usr/local/emhttp/plugins/dynamix.plugin.manager/PluginInstall.page
-echo 'To enable untrusted sources please goto a terminal and run <pre>enable_untrusted_sources</pre>.' >> /usr/local/emhttp/plugins/dynamix.plugin.manager/PluginInstall.page
+echo "To enable untrusted sources please goto a terminal and run <![CDATA[<code>enable_untrusted_sources</code>]]>." >> /usr/local/emhttp/plugins/dynamix.plugin.manager/PluginInstall.page
 echo "Untrusted sources have been disabled, run enable_untrusted_sources to reverse this."
 fi
 </INLINE>
