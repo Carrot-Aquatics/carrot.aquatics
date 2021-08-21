@@ -34,10 +34,10 @@ mv /usr/local/emhttp/plugins/dynamix.plugin.manager/PluginInstall.page /usr/loca
 
 # Cleanup pages
 echo "Menu="Plugins"" > /usr/local/emhttp/plugins/dynamix.plugin.manager/PluginInstall.page
-echo "Title="Install Plugin"" > /usr/local/emhttp/plugins/dynamix.plugin.manager/PluginInstall.page
-echo "Tag="download"" > /usr/local/emhttp/plugins/dynamix.plugin.manager/PluginInstall.page
-echo "---" > /usr/local/emhttp/plugins/dynamix.plugin.manager/PluginInstall.page
-echo "To enable untrusted sources please goto a terminal and run <code>enable_untrusted_sources</code>." > /usr/local/emhttp/plugins/dynamix.plugin.manager/PluginInstall.page
+echo "Title="Install Plugin"" >> /usr/local/emhttp/plugins/dynamix.plugin.manager/PluginInstall.page
+echo "Tag="download"" >> /usr/local/emhttp/plugins/dynamix.plugin.manager/PluginInstall.page
+echo "---" >> /usr/local/emhttp/plugins/dynamix.plugin.manager/PluginInstall.page
+echo "To enable untrusted sources please goto a terminal and run <code>enable_untrusted_sources</code>." >> /usr/local/emhttp/plugins/dynamix.plugin.manager/PluginInstall.page
 </INLINE>
 </FILE>
 
