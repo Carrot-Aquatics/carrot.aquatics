@@ -9,7 +9,7 @@
 ]>
 <PLUGIN name="&repo;" author="&author;" version="&version;" icon="folder" min="6.10.0-rc1">
 <FILE Name="/boot/config/plugins/&repo;/&name;-v&version;.tgz">
-<URL>https://github.com/&repo;/releases/download/&version;/&name;-&version;.tgz</URL>
+<URL>https://github.com/&repo;/releases/download/v&version;/&name;-&version;.tgz</URL>
 </FILE>
 
 <!-- The install script -->
