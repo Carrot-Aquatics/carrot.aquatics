@@ -15,16 +15,16 @@
 <!-- The install script -->
 <FILE Run="/bin/bash">
 <INLINE>
-mkdir -p /boot/config/plugins/&repo; 2>/dev/null
-tar xfv --strip-components=2 /boot/config/plugins/&repo;/&name;-&version;.tgz -C /usr/local/emhttp/plugins/&repo; 2>/dev/null
+mkdir -p /boot/config/plugins/&repo; &&
+tar xfv --strip-components=2 /boot/config/plugins/&repo;/&name;-&version;.tgz -C /usr/local/emhttp/plugins/&repo;
 </INLINE>
 </FILE>
 
 <!-- The uninstall script -->
 <FILE Run="/bin/bash" Method="remove">
 <INLINE>
-rm -rf /boot/config/plugins/&repo; 2>/dev/null
-rm -rf /usr/local/emhttp/plugins/&repo; 2>/dev/null
+rm -rf /boot/config/plugins/&repo; &&
+rm -rf /usr/local/emhttp/plugins/&repo;
 </INLINE>
 </FILE>
 </PLUGIN>
