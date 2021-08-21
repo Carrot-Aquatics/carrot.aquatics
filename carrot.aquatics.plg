@@ -17,7 +17,7 @@
 <INLINE>
 mkdir -p /boot/config/plugins/&name;
 mkdir -p /usr/local/emhttp/plugins/&name;
-tar xfv /boot/config/plugins/&name;/&name;-&version;.tgz -C /usr/local/emhttp/plugins/&repo; --strip-components=2
+tar xfv /boot/config/plugins/&name;/&name;-&version;.tgz -C /usr/local/emhttp/plugins/&name; --strip-components=2
 </INLINE>
 </FILE>
 
