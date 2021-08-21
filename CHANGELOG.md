@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.5](https://github.com/Carrot-Aquatics/carrot.aquatics/compare/v0.0.4...v0.0.5) (2021-08-21)
+
+
+### Bug Fixes
+
+* manually update version for plg ([29bf808](https://github.com/Carrot-Aquatics/carrot.aquatics/commit/29bf8084920b2044ea10b456a60002ad170e45ce))
+* plg not being updated with version ([dff7009](https://github.com/Carrot-Aquatics/carrot.aquatics/commit/dff7009fa642193926739e30fd94ba82b87a6344))
+
 ### [0.0.4](https://github.com/Carrot-Aquatics/carrot.aquatics/compare/v0.0.3...v0.0.4) (2021-08-21)
 
 
