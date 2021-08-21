@@ -1,0 +1,21 @@
+{
+  "name": "carrot.aquatics",
+  "version": "0.0.1",
+  "description": "",
+  "repository": "https://github.com/Carrot-Aquatics/carrot.aquatics.git",
+  "author": "Carrot-Aquatics",
+  "license": "MIT",
+  "files": [
+    "src"
+  ],
+  "bugs": {
+    "url": "https://github.com/Carrot-Aquatics/carrot.aquatics/issues"
+  },
+  "homepage": "https://github.com/Carrot-Aquatics/carrot.aquatics#readme",
+  "scripts": {
+    "release": "standard-version"
+  },
+  "devDependencies": {
+    "standard-version": "^9.3.1"
+  }
+}
