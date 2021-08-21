@@ -49,13 +49,13 @@ mkdir -p /boot/config/plugins/&name;
 mkdir -p /usr/local/emhttp/plugins/&name;
 tar xfv /boot/config/plugins/&name;/&name;-&version;.tgz -C /usr/local/emhttp/plugins/&name; --strip-components=2
 
+# Add untrusted sources scripts
+cp /boot/config/plugins/&name;/disable_untrusted_sources /usr/local/sbin/disable_untrusted_sources
+cp /boot/config/plugins/&name;/enable_untrusted_sources /usr/local/sbin/enable_untrusted_sources
+
 # Ensure scripts are executable
 chmod +x /usr/local/sbin/disable_untrusted_sources
 chmod +x /usr/local/sbin/enable_untrusted_sources
-
-# Add symlinks for untrusted sources scripts
-ln -s /boot/config/plugins/&name;/disable_untrusted_sources /usr/local/sbin/disable_untrusted_sources
-ln -s /boot/config/plugins/&name;/enable_untrusted_sources /usr/local/sbin/enable_untrusted_sources
 
 # Disable untrusted sources
 /usr/local/sbin/disable_untrusted_sources
@@ -68,7 +68,7 @@ ln -s /boot/config/plugins/&name;/enable_untrusted_sources /usr/local/sbin/enabl
 # Restore full access
 sh /boot/config/plugins/&name;/enable_untrusted_sources
 
-# Remove symlinks for untrusted sources scripts
+# Remove untrusted sources scripts
 rm /usr/local/sbin/disable_untrusted_sources
 rm /usr/local/sbin/enable_untrusted_sources
 
