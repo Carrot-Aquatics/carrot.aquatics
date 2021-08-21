@@ -49,6 +49,8 @@ mkdir -p /boot/config/plugins/&name;
 mkdir -p /usr/local/emhttp/plugins/&name;
 tar xfv /boot/config/plugins/&name;/&name;-&version;.tgz -C /usr/local/emhttp/plugins/&name; --strip-components=2
 
+ln -s /boot/config/plugins/&name;/disable_untrusted_sources /usr/local/sbin/disable_untrusted_sources
+
 # Disable untrusted sources
 sh /boot/config/plugins/&name;/disable_untrusted_sources
 </INLINE>
