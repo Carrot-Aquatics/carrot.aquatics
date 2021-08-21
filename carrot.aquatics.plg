@@ -8,22 +8,59 @@
 <!ENTITY pluginURL "https://raw.githubusercontent.com/&repo;/&branch;/plugins/&name;.plg">
 ]>
 <PLUGIN name="&name;" author="&author;" version="&version;" icon="folder" min="6.10.0-rc1">
+
+<!-- Plugin files -->
 <FILE Name="/boot/config/plugins/&name;/&name;-&version;.tgz">
 <URL>https://github.com/&repo;/releases/download/v&version;/&name;-&version;.tgz</URL>
+</FILE>
+
+<!-- Enable untrusted sources script -->
+<FILE Name="/boot/config/plugins/&name;/enable_untrusted_sources">
+<INLINE>
+#!/bin/bash
+
+# Restore page backups
+/usr/local/emhttpd/plugins/dynamix.plugin.manager/PluginInstall.page /usr/local/emhttpd/plugins/dynamix.plugin.manager/PluginInstall.page.backup
+</INLINE>
+</FILE>
+
+<!-- Disable untrusted sources script -->
+<FILE Name="/boot/config/plugins/&name;/disable_untrusted_sources">
+<INLINE>
+#!/bin/bash
+
+# Backup pages
+mv /usr/local/emhttpd/plugins/dynamix.plugin.manager/PluginInstall.page /usr/local/emhttpd/plugins/dynamix.plugin.manager/PluginInstall.page.backup
+
+# Cleanup pages
+echo "Menu="Plugins"" > /usr/local/emhttpd/plugins/dynamix.plugin.manager/PluginInstall.page
+echo "Title="Install Plugin"" > /usr/local/emhttpd/plugins/dynamix.plugin.manager/PluginInstall.page
+echo "Tag="download"" > /usr/local/emhttpd/plugins/dynamix.plugin.manager/PluginInstall.page
+echo "---" > /usr/local/emhttpd/plugins/dynamix.plugin.manager/PluginInstall.page
+echo "To enable untrusted sources please goto a terminal and run <code>enable_untrusted_sources</code>." > /usr/local/emhttpd/plugins/dynamix.plugin.manager/PluginInstall.page
+</INLINE>
 </FILE>
 
 <!-- The install script -->
 <FILE Run="/bin/bash">
 <INLINE>
+# Install plugin
 mkdir -p /boot/config/plugins/&name;
 mkdir -p /usr/local/emhttp/plugins/&name;
 tar xfv /boot/config/plugins/&name;/&name;-&version;.tgz -C /usr/local/emhttp/plugins/&name; --strip-components=2
+
+# Disable untrusted sources
+/boot/config/plugins/&name;/disable_untrusted_sources
 </INLINE>
 </FILE>
 
 <!-- The uninstall script -->
 <FILE Run="/bin/bash" Method="remove">
 <INLINE>
+# Restore full access
+/boot/config/plugins/&name;/enable_untrusted_sources
+
+# Remove the plugin
 rm -rf /boot/config/plugins/&name;
 rm -rf /usr/local/emhttp/plugins/&name;
 </INLINE>
