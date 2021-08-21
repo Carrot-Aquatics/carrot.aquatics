@@ -18,9 +18,14 @@
 <FILE Name="/boot/config/plugins/&name;/enable_untrusted_sources">
 <INLINE>
 #!/bin/bash
-
+# Check if backup exists, if not then untrusted sources are enabled.
+if [ ! -f "/usr/local/emhttp/plugins/dynamix.plugin.manager/PluginInstall.page.backup" ]; then
+echo "Untrusted sources are already enabled!"
+else
 # Restore page backups
 mv /usr/local/emhttp/plugins/dynamix.plugin.manager/PluginInstall.page.backup /usr/local/emhttp/plugins/dynamix.plugin.manager/PluginInstall.page
+echo "Untrusted sources have been enabled, run disable_untrusted_sources to reverse this."
+fi
 </INLINE>
 </FILE>
 
@@ -29,6 +34,10 @@ mv /usr/local/emhttp/plugins/dynamix.plugin.manager/PluginInstall.page.backup /u
 <INLINE>
 #!/bin/bash
 
+# Check if we've already patched this
+if grep -q enable_untrusted_sources "/usr/local/emhttp/plugins/dynamix.plugin.manager/PluginInstall.page"; then
+echo "Untrusted sources are already disabled!"
+else
 # Backup pages
 mv /usr/local/emhttp/plugins/dynamix.plugin.manager/PluginInstall.page /usr/local/emhttp/plugins/dynamix.plugin.manager/PluginInstall.page.backup
 
@@ -38,6 +47,8 @@ echo "Title="Install Plugin"" >> /usr/local/emhttp/plugins/dynamix.plugin.manage
 echo "Tag="download"" >> /usr/local/emhttp/plugins/dynamix.plugin.manager/PluginInstall.page
 echo "---" >> /usr/local/emhttp/plugins/dynamix.plugin.manager/PluginInstall.page
 echo 'To enable untrusted sources please goto a terminal and run <pre>enable_untrusted_sources</pre>.' >> /usr/local/emhttp/plugins/dynamix.plugin.manager/PluginInstall.page
+echo "Untrusted sources have been disabled, run enable_untrusted_sources to reverse this."
+fi
 </INLINE>
 </FILE>
 
