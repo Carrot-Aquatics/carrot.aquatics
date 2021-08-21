@@ -20,7 +20,7 @@
 #!/bin/bash
 
 # Restore page backups
-/usr/local/emhttpd/plugins/dynamix.plugin.manager/PluginInstall.page /usr/local/emhttpd/plugins/dynamix.plugin.manager/PluginInstall.page.backup
+/usr/local/emhttp/plugins/dynamix.plugin.manager/PluginInstall.page /usr/local/emhttp/plugins/dynamix.plugin.manager/PluginInstall.page.backup
 </INLINE>
 </FILE>
 
@@ -30,14 +30,14 @@
 #!/bin/bash
 
 # Backup pages
-mv /usr/local/emhttpd/plugins/dynamix.plugin.manager/PluginInstall.page /usr/local/emhttpd/plugins/dynamix.plugin.manager/PluginInstall.page.backup
+mv /usr/local/emhttp/plugins/dynamix.plugin.manager/PluginInstall.page /usr/local/emhttp/plugins/dynamix.plugin.manager/PluginInstall.page.backup
 
 # Cleanup pages
-echo "Menu="Plugins"" > /usr/local/emhttpd/plugins/dynamix.plugin.manager/PluginInstall.page
-echo "Title="Install Plugin"" > /usr/local/emhttpd/plugins/dynamix.plugin.manager/PluginInstall.page
-echo "Tag="download"" > /usr/local/emhttpd/plugins/dynamix.plugin.manager/PluginInstall.page
-echo "---" > /usr/local/emhttpd/plugins/dynamix.plugin.manager/PluginInstall.page
-echo "To enable untrusted sources please goto a terminal and run <code>enable_untrusted_sources</code>." > /usr/local/emhttpd/plugins/dynamix.plugin.manager/PluginInstall.page
+echo "Menu="Plugins"" > /usr/local/emhttp/plugins/dynamix.plugin.manager/PluginInstall.page
+echo "Title="Install Plugin"" > /usr/local/emhttp/plugins/dynamix.plugin.manager/PluginInstall.page
+echo "Tag="download"" > /usr/local/emhttp/plugins/dynamix.plugin.manager/PluginInstall.page
+echo "---" > /usr/local/emhttp/plugins/dynamix.plugin.manager/PluginInstall.page
+echo "To enable untrusted sources please goto a terminal and run <code>enable_untrusted_sources</code>." > /usr/local/emhttp/plugins/dynamix.plugin.manager/PluginInstall.page
 </INLINE>
 </FILE>
 
