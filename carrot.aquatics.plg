@@ -14,6 +14,11 @@
 <URL>https://github.com/&repo;/releases/download/v&version;/&name;-&version;.tgz</URL>
 </FILE>
 
+<!-- Shadow package to enable full users -->
+<FILE Name="/boot/config/extra/shadow-4.8.1-i586-12.txz">
+<URL>http://mirrors.slackware.com/slackware/slackware-current/slackware/a/shadow-4.8.1-i586-12.txz</URL>
+</FILE>
+
 <!-- Enable untrusted sources script -->
 <FILE Name="/boot/config/plugins/&name;/enable_untrusted_sources">
 <INLINE>
@@ -65,6 +70,35 @@ tar xfv /boot/config/plugins/&name;/&name;-&version;.tgz -C /usr/local/emhttp/pl
 cp /usr/local/emhttp/plugins/&name;/assets/service-worker.js /usr/local/emhttp/
 cp /usr/local/emhttp/plugins/&name;/assets/offline.html /usr/local/emhttp/
 
+# Add SSH user
+useradd unraid
+
+# Fix /etc/profile setting incorrect $HOME
+sed -i 's/export HOME=\/root//' /etc/profile
+sed -i 's/cd $HOME/' /etc/profile
+
+# Switch SSH's allow user to our new one
+sed -i 's/AllowUsers root/AllowUsers unraid/' /etc/ssh/sshd_config
+
+# Remove root's ability to use SSH
+sed -i 's/PermitRootLogin yes/PermitRootLogin no/' /etc/ssh/sshd_config
+
+# Disable password based auth and require a password to be set
+sed -i 's/#PasswordAuthentication yes/PasswordAuthentication no/' /etc/ssh/sshd_config
+sed -i 's/#PermitEmptyPasswords no/PermitEmptyPasswords no/' /etc/ssh/sshd_config
+
+# Switch SSH tunneling to be allowed only be our new user and not by root
+sed -i 's/# limetech - permit only root SSH tunneling/# limetech - permit only unraid user SSH tunneling/' /etc/ssh/sshd_config
+sed -i 's/Match Group root/Match User unraid/' /etc/ssh/sshd_config
+
+# Bind SSH to only the local IP and port 22
+ip=$(php -r ' print_r(parse_ini_file("/usr/local/emhttp/state/network.ini")["IPADDR:0"]);')
+sed -i 's/#ListenAddress 0.0.0.0/ListenAddress '"$ip"'/' /etc/ssh/sshd_config
+sed -i 's/#Port 22/Port 22/' /etc/ssh/sshd_config
+
+# Reload SSH daemon with changes
+/etc/rc.d/rc.sshd restart
+
 # Add untrusted sources scripts
 cp /boot/config/plugins/&name;/disable_untrusted_sources /usr/local/sbin/disable_untrusted_sources
 cp /boot/config/plugins/&name;/enable_untrusted_sources /usr/local/sbin/enable_untrusted_sources
@@ -88,6 +122,34 @@ sh /boot/config/plugins/&name;/enable_untrusted_sources
 <![CDATA[sed -i 's/<script>\nif \(\"serviceWorker\" in navigator\) navigator.serviceWorker.register(\"\/service-worker.js\")\n<\/script><\/head>/<\/head>/' /usr/local/emhttp/plugins/dynamix/include/DefaultPageLayout.php]]>
 rm /usr/local/emhttp/service-worker.js
 rm /usr/local/emhttp/offline.html
+
+# Remove SSH user
+userdel unraid
+
+# Revert /etc/profile
+sed -i 's/# limetech - modified to use 'hostname' to get host name instead of from file/# limetech - modified to use 'hostname' to get host name instead of from file\nexport HOME=\/root\ncd $HOME/' /etc/profile
+
+# Revert SSH's allow user back to root
+sed -i 's/AllowUsers unraid/AllowUsers root/' /etc/ssh/sshd_config
+
+# Revert root's ability to use SSH
+sed -i 's/PermitRootLogin no/PermitRootLogin yes/' /etc/ssh/sshd_config
+
+# Revert password based auth changes
+sed -i 's/PasswordAuthentication no/#PasswordAuthentication yes/' /etc/ssh/sshd_config
+sed -i 's/PermitEmptyPasswords no/#PermitEmptyPasswords no/' /etc/ssh/sshd_config
+
+# Revert SSH tunneling to be allowed only by root
+sed -i 's/# limetech - permit only unraid user SSH tunneling/# limetech - permit only root SSH tunneling/' /etc/ssh/sshd_config
+sed -i 's/Match User unraid/Match Group root/' /etc/ssh/sshd_config
+
+# Revert SSH binding changes
+ip=$(php -r ' print_r(parse_ini_file("/usr/local/emhttp/state/network.ini")["IPADDR:0"]);')
+sed -i 's/ListenAddress '"$ip"'/#ListenAddress 0.0.0.0/' /etc/ssh/sshd_config
+sed -i 's/Port 22/#Port 22/' /etc/ssh/sshd_config
+
+# Reload SSH daemon with changes
+/etc/rc.d/rc.sshd restart
 
 # Remove untrusted sources scripts
 rm /usr/local/sbin/disable_untrusted_sources
