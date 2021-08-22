@@ -2,7 +2,7 @@
 <!DOCTYPE PLUGIN [
 <!ENTITY name "carrot.aquatics">
 <!ENTITY author "Carrot-Aquatics">
-<!ENTITY version "0.0.6">
+<!ENTITY version "0.0.7">
 <!ENTITY repo "Carrot-Aquatics/carrot.aquatics">
 <!ENTITY branch "main">
 <!ENTITY pluginURL "https://raw.githubusercontent.com/&repo;/&branch;/plugins/&name;.plg">

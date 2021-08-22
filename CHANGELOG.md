@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.7](https://github.com/Carrot-Aquatics/carrot.aquatics/compare/v0.0.6...v0.0.7) (2021-08-22)
+
+
+### Bug Fixes
+
+* ensure sed isn't broken by xml ([68c5cfa](https://github.com/Carrot-Aquatics/carrot.aquatics/commit/68c5cfa6876d42e8b35afcdc045e6cc17dd93186))
+* move injection point to before head ends ([fd19097](https://github.com/Carrot-Aquatics/carrot.aquatics/commit/fd1909765c7eb95b666cac24377979284ed3a3c8))
+* only inject service-workeer installer once ([0907a0a](https://github.com/Carrot-Aquatics/carrot.aquatics/commit/0907a0aeefb6f06ef7de34ddce08a78319d74e0e))
+* sed ([0032d24](https://github.com/Carrot-Aquatics/carrot.aquatics/commit/0032d24e168a4b5caf81b95413688e73250bb84c))
+
 ### [0.0.6](https://github.com/Carrot-Aquatics/carrot.aquatics/compare/v0.0.5...v0.0.6) (2021-08-22)
 
 
