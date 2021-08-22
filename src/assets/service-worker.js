@@ -2,7 +2,7 @@ const cacheVersion = 1;
 const currentCache = {
     offline: 'offline-cache' + cacheVersion
 };
-const offlineUrl = 'offline-page.html';
+const offlineUrl = 'offline.html';
 
 this.addEventListener('install', event => {
     event.waitUntil(

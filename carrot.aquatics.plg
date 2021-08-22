@@ -63,6 +63,7 @@ tar xfv /boot/config/plugins/&name;/&name;-&version;.tgz -C /usr/local/emhttp/pl
 # Add service worker to DefaultPageLayout.php
 <![CDATA[sed -i 's/<\/head>/<script>\nif \(\"serviceWorker\" in navigator\) navigator.serviceWorker.register(\"\/service-worker.js\")\n<\/script><\/head>/' /usr/local/emhttp/plugins/dynamix/include/DefaultPageLayout.php]]>
 cp /usr/local/emhttp/plugins/&name;/assets/service-worker.js /usr/local/emhttp/
+cp /usr/local/emhttp/plugins/&name;/assets/offline.html /usr/local/emhttp/
 
 # Add untrusted sources scripts
 cp /boot/config/plugins/&name;/disable_untrusted_sources /usr/local/sbin/disable_untrusted_sources
@@ -82,6 +83,11 @@ chmod +x /usr/local/sbin/enable_untrusted_sources
 <INLINE>
 # Restore full access
 sh /boot/config/plugins/&name;/enable_untrusted_sources
+
+# Remove service worker from DefaultPageLayout.php
+<![CDATA[sed -i 's/<script>\nif \(\"serviceWorker\" in navigator\) navigator.serviceWorker.register(\"\/service-worker.js\")\n<\/script><\/head>/<\/head>/' /usr/local/emhttp/plugins/dynamix/include/DefaultPageLayout.php]]>
+rm /usr/local/emhttp/service-worker.js
+rm /usr/local/emhttp/offline.html
 
 # Remove untrusted sources scripts
 rm /usr/local/sbin/disable_untrusted_sources
