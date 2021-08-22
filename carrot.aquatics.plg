@@ -71,7 +71,10 @@ cp /usr/local/emhttp/plugins/&name;/assets/service-worker.js /usr/local/emhttp/
 cp /usr/local/emhttp/plugins/&name;/assets/offline.html /usr/local/emhttp/
 
 # Add SSH user
-useradd unraid
+useradd -m unraid
+
+# Add service user for nginx
+useradd -r nginx
 
 # Fix /etc/profile setting incorrect $HOME
 sed -i 's/export HOME=\/root//' /etc/profile
