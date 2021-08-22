@@ -61,7 +61,7 @@ mkdir -p /usr/local/emhttp/plugins/&name;
 tar xfv /boot/config/plugins/&name;/&name;-&version;.tgz -C /usr/local/emhttp/plugins/&name; --strip-components=2
 
 # Add service worker to DefaultPageLayout.php
-<![CDATA[sed -i 's/<\/script>/\nif \(\"serviceWorker\" in navigator\) navigator.serviceWorker.register(\"\/plugins\/carrot.aquatics\/assets\/service-worker.js\")\n<\/script>/' /usr/local/emhttp/plugins/dynamix/include/DefaultPageLayout.php]]>
+<![CDATA[sed -i '0,/<script>/<script>\nif \(\"serviceWorker\" in navigator\) navigator.serviceWorker.register(\"\/plugins\/carrot.aquatics\/assets\/service-worker.js\")\n/' /usr/local/emhttp/plugins/dynamix/include/DefaultPageLayout.php]]>
 
 # Add untrusted sources scripts
 cp /boot/config/plugins/&name;/disable_untrusted_sources /usr/local/sbin/disable_untrusted_sources
