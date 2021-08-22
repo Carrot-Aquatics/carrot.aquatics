@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.6](https://github.com/Carrot-Aquatics/carrot.aquatics/compare/v0.0.5...v0.0.6) (2021-08-22)
+
+
+### Features
+
+* add service worker ([01b6a90](https://github.com/Carrot-Aquatics/carrot.aquatics/commit/01b6a90fdc6101aae26fc468c14e49b2c6a5cbca))
+
+
+### Bug Fixes
+
+* actually call disable script ([3eea4e0](https://github.com/Carrot-Aquatics/carrot.aquatics/commit/3eea4e0e37f921c6c56da281dab60d9e299bf1ac))
+* add backup protection ([1ad3449](https://github.com/Carrot-Aquatics/carrot.aquatics/commit/1ad34497243c900f5a6ba6a1c7ced0d5cb35467f))
+* code block with CDATA ([f930349](https://github.com/Carrot-Aquatics/carrot.aquatics/commit/f9303492d6481516c6333207e9e91601e46c0534))
+* move scripts to OS instead of boot ([6826dac](https://github.com/Carrot-Aquatics/carrot.aquatics/commit/6826dacbcd09cdd2b5a37b066360174bbfa7c034))
+
 ### [0.0.5](https://github.com/Carrot-Aquatics/carrot.aquatics/compare/v0.0.4...v0.0.5) (2021-08-21)
 
 
